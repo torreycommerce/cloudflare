@@ -1,5 +1,5 @@
 {
-    "name": "jamesryanbell/cloudflare",
+    "name": "torreycommerce/cloudflare",
     "description": "Cloudflare API V4 PHP wrapper",
     "license": "MIT",
     "keywords": ["cloudflare", "api"],
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "JamesRyanBell\\Cloudflare\\": "src"
+            "torreycommerce\\Cloudflare\\": "src"
         }
     }
 }
