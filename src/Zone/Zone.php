@@ -1,7 +1,7 @@
 <?php
 
-namespace JamesRyanBell\Cloudflare;
-use JamesRyanBell\Cloudflare\Api;
+namespace Torreycommerce\Cloudflare;
+use Torreycommerce\Cloudflare\Api;
 
 /**
  * CloudFlare API wrapper

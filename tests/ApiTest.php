@@ -1,6 +1,6 @@
 <?php
 
-use JamesRyanBell\Cloudflare;
+use Torreycommerce\Cloudflare;
 
 class ApiTest extends PHPUnit_Framework_TestCase {
 
@@ -82,7 +82,7 @@ class ApiTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testHttpRequest() {
-		$reflectionClass = new ReflectionClass('\\JamesryanBell\Cloudflare\\Api');
+		$reflectionClass = new ReflectionClass('\\Torreycommerce\Cloudflare\\Api');
 		$method = $reflectionClass->getMethod('request');
 		$method->setAccessible(true);
 

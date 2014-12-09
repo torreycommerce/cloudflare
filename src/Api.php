@@ -1,6 +1,6 @@
 <?php
 
-namespace JamesRyanBell\Cloudflare;
+namespace Torreycommerce\Cloudflare;
 
 use \Exception;
 
