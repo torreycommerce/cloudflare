@@ -6,8 +6,8 @@
 
 #Cloudflare API V4 PHP wrapper
 
+This is a fork of jamesryanbell/cloudflare for use at Torreycommerce.
 A work in progress library for the new Cloudflare API. The documentation for the new API  can be found at http://developers.cloudflare.com/next/.
-
 
 I have integrated most of the methods available but many features from the current API have not been implemented yet. For now I suggest you use the API wrapper written by [vexxhost](https://github.com/vexxhost) which can befound at https://github.com/vexxhost/CloudFlare-API.
 
