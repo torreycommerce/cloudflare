@@ -154,7 +154,8 @@ class Api
 		if( $method === 'post' ) {
 			curl_setopt($ch, CURLOPT_POST, true);
 			//curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            $headers[] = "Content-type: application/json";            
 		} else if ( $method === 'put' ) {
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
@@ -170,6 +171,12 @@ class Api
 		} else {
 			$url .= '?' . http_build_query($data);
 		}
+        echo "email: ".$this->email."\n";
+        echo "auth key: ".$this->auth_key."\n";                
+        echo "$method REQUEST: ".$url."\n";
+        echo "data:".http_build_query($data)."\n";
+
+         
 
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_URL, $url);
@@ -184,7 +191,8 @@ class Api
 			return array(
 				'error'     => $error,
 				'http_code' => $http_code,
-				'method'    => $method
+				'method'    => $method,
+                'result'    => $http_result
 			);
 		} else {
 			return json_decode($http_result);
