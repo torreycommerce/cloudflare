@@ -164,6 +164,7 @@ class Api
 		} else if ( $method === 'delete' ) {
 			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+            $headers[] = "Content-type: application/json";              
 		} else if ($method === 'patch') {
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");
@@ -171,10 +172,10 @@ class Api
 		} else {
 			$url .= '?' . http_build_query($data);
 		}
-        echo "email: ".$this->email."\n";
-        echo "auth key: ".$this->auth_key."\n";                
-        echo "$method REQUEST: ".$url."\n";
-        echo "data:".http_build_query($data)."\n";
+        // echo "email: ".$this->email."\n";
+        // echo "auth key: ".$this->auth_key."\n";                
+        // echo "$method REQUEST: ".$url."\n";
+        // echo "data:".http_build_query($data)."\n";
 
          
 
