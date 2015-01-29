@@ -82,9 +82,9 @@ class Dns extends Api
 	 * @param  string $zone_identifier
 	 * @param  string $identifier      API item identifier tag
 	 */
-	public function update($zone_identifier, $identifier)
+	public function update($zone_identifier, $identifier, $data)
 	{
-		return $this->put('zones/' . $zone_identifier . '/dns_records/' . $identifier);
+		return $this->put('zones/' . $zone_identifier . '/dns_records/' . $identifier,$data);
 	}
 
 	/**
