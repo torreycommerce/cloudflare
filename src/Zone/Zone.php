@@ -94,5 +94,11 @@ class Zone extends Api
 	{
 		return $this->delete('zones/' . $identifier);
 	}
+    public function getSetting($identifier,$type) {
+        return $this->get('zones/' . $identifier.'/settings/'.$type);
+    }
+    public function setSetting($identifier,$type,$value) {
+        return $this->patch('zones/' . $identifier.'/settings/'.$type,['value'=>$value]);
+    }    
 
 }

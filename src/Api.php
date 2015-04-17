@@ -108,7 +108,15 @@ class Api
 	{
 		return $this->request($path, $data, 'delete');
 	}
-
+    /**
+     * API call method for sending requests using PATCH
+     * @param  string $path Path of the endpoint
+     * @param  array  $data Data to be sent along with the request
+     */
+    public function patch($path, $data = array())
+    {
+        return $this->request($path, $data, 'patch');
+    }
 	/**
 	 *
 	 * @codeCoverageIgnore
@@ -167,7 +175,7 @@ class Api
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
             $headers[] = "Content-type: application/json";              
 		} else if ($method === 'patch') {
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");
 			$headers[] = "Content-type: application/json";
 		} else {
