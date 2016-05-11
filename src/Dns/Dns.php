@@ -24,13 +24,14 @@ class Dns extends Api
 	 * @param  string  $content DNS record content
 	 * @param  integer $ttl     Time to live for DNS record. Value of 1 is 'automatic'
 	 */
-	public function create($zone_identifier, $type, $name = null, $content = null, $ttl = null)
+	public function create($zone_identifier, $type, $name = null, $content = null, $ttl = null,$priority = null)
 	{
 		$data = array(
 			'type'    => strtoupper($type),
 			'name'    => $name,
 			'content' => $content,
-			'ttl'     => $ttl
+			'ttl'     => $ttl,
+			'priority'    => $priority
 		);
 
 		return $this->post('zones/' . $zone_identifier . '/dns_records', $data);
