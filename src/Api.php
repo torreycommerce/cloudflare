@@ -161,11 +161,12 @@ class Api
 
 		if( $method === 'post' ) {
 			curl_setopt($ch, CURLOPT_POST, true);
-			//curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+			//curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));			
 			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
             $headers[] = "Content-type: application/json";            
 		} else if ( $method === 'put' ) {
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+			//curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+		   // file_put_contents('/tmp/cloudflare.log','PUT: '.json_encode($data),FILE_APPEND)."\n";			
 			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             $headers[] = "Content-type: application/json";            

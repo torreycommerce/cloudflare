@@ -85,7 +85,10 @@ class Dns extends Api
 	 */
 	public function update($zone_identifier, $identifier, $data)
 	{
-		return $this->put('zones/' . $zone_identifier . '/dns_records/' . $identifier,$data);
+	    $data['proxied']=true;     
+		$x = $this->put('zones/' . $zone_identifier . '/dns_records/' . $identifier,$data);
+		file_put_contents('/tmp/cloudflare.log',print_r($x,true),FILE_APPEND);
+		return $x;
 	}
 
 	/**
