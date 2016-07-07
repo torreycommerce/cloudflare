@@ -101,4 +101,28 @@ class Zone extends Api
         return $this->patch('zones/' . $identifier.'/settings/'.$type,['value'=>$value]);
     }    
 
+    public function getPageRules($identifier) {
+        return $this->get('zones/' . $identifier.'/pagerules/');
+    }
+    public function getPageRule($zoneIdentifier,$identifier) {
+        return $this->get('zones/' . $zoneIdentifier.'/pagerules/'.$identifier);	
+    }
+
+    public function createPageRule($zoneIdentifier,$target,$id,$value) {
+    	$arr = [ 
+    		'targets'=>[ (object)
+    		    [
+    		        'target'=>'url',
+    		        'constraint'=>(object)[ 'operator' => 'matches' , 'value' => $target ]
+    		    ]
+    		],
+    		'actions'=>[ (object)
+    			['id'=> $id, 'value' => $value]
+    		],
+    		'priority' => 1,
+    		'status' => 'active'
+     	]; 
+
+    	return $this->post('zones/' . $zoneIdentifier.'/pagerules',$arr);	
+    }
 }
