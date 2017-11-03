@@ -32,7 +32,7 @@ class Dns extends Api
 			'content' => $content,
 			'ttl'     => $ttl,
 			'priority'    => $priority,
-			'proxies' => true
+			'proxied' => true
 		);
 
 		return $this->post('zones/' . $zone_identifier . '/dns_records', $data);
