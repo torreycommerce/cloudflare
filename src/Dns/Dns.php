@@ -31,9 +31,18 @@ class Dns extends Api
 			'name'    => $name,
 			'content' => $content,
 			'ttl'     => $ttl,
-			'priority'    => $priority,
-			'proxied' => true
+			'priority'    => $priority
 		);
+	
+		switch(strtoupper($type)) {
+		    case 'A':
+                    case 'CNAME':
+                    case 'AAAA':
+                       $data['proxied']=true;
+                    break;
+  		    default: 
+                    break;	
+		}
 
 		return $this->post('zones/' . $zone_identifier . '/dns_records', $data);
 	}
