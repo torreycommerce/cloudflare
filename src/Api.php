@@ -136,7 +136,7 @@ class Api
 		//Removes empty entries
 		$data = array_filter($data);
 
-		$url = 'https://api.cloudflare.com/v4/' . $path;
+		$url = 'https://api.cloudflare.com/client/v4/' . $path;
 
 		$default_curl_options = array(
 			CURLOPT_VERBOSE        => false,
